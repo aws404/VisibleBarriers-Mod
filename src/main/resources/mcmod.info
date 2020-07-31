@@ -1,0 +1,16 @@
+[
+{
+  "modid": "visiblebarriers",
+  "name": "Visible Barriers",
+  "description": "Makes barriers visible",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["aws404"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
