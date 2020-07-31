@@ -1,5 +1,11 @@
 package com.aws404.visiblebarriers;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.particle.Barrier;
+import net.minecraft.client.renderer.ItemModelMesher;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -23,6 +29,10 @@ public class VisibleBarriers {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        //Register keybinds
         KeyBindings.registerBindings();
+
+        //Overwrite the barrier particle
+        Minecraft.getMinecraft().effectRenderer.registerParticle(EnumParticleTypes.BARRIER.getParticleID(), new NewCustomBarrierParticle.Factory());
     }
 }

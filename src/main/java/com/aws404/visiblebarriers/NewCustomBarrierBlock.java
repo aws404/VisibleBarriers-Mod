@@ -2,8 +2,8 @@ package com.aws404.visiblebarriers;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBarrier;
+import net.minecraft.block.BlockClay;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
@@ -12,52 +12,31 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class NewCustomBarrier extends BlockBarrier {
+public class NewCustomBarrierBlock extends BlockBarrier {
 
-    private static boolean IS_SHOWING = true;
+    public static boolean IS_SHOWING = true;
 
-    public NewCustomBarrier() {
+    public NewCustomBarrierBlock() {
         super();
-        //Configure to override minecraft:barrier
-        this.setRegistryName("minecraft","barrier");
-        this.setUnlocalizedName("barrier");
-
-        //Add to creative tab
-        this.setCreativeTab(CreativeTabs.TOOLS);
     }
 
     //Custom methods
 
+    @SideOnly(Side.CLIENT)
     public static void toggleVisibility() {
         IS_SHOWING = !IS_SHOWING;
     }
 
     //Rendering configurations
 
+    @SideOnly(Side.CLIENT)
     public EnumBlockRenderType getRenderType(IBlockState state)
     {
         return EnumBlockRenderType.MODEL;
     }
 
-    public boolean isOpaqueCube(IBlockState state)
-    {
-        return false;
-    }
-
-    public boolean isFullCube(IBlockState state)
-    {
-        return false;
-    }
-
     @SideOnly(Side.CLIENT)
-    public float getAmbientOcclusionLightValue(IBlockState state)
-    {
-        return 1.0F;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
-    {
+    public BlockRenderLayer getBlockLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 
